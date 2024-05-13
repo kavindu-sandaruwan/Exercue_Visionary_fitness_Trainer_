@@ -1,5 +1,6 @@
 package com.example.poseexercise.views.fragment
 
+import android.graphics.Color
 import android.os.Bundle
 import android.text.InputFilter
 import android.view.LayoutInflater
@@ -19,6 +20,7 @@ import com.example.poseexercise.data.plan.Plan
 import com.example.poseexercise.util.MemoryManagement
 import com.example.poseexercise.viewmodels.AddPlanViewModel
 import kotlinx.coroutines.launch
+import android.widget.CheckedTextView
 
 /**
  * PlanStepTwoFragment: Fragment for capturing additional details of an exercise plan.
@@ -58,13 +60,43 @@ class PlanStepTwoFragment : Fragment(), MemoryManagement {
         // Set the min and max value for Repeat count
         setEditTextLimit(repeatEditText, 1, 100)
         // Option list for days in week
-        val listAdapter = ArrayAdapter(
+//        val listAdapter = ArrayAdapter(
+//            this.requireContext(),
+//            android.R.layout.simple_list_item_multiple_choice,
+//            days
+//        )
+//        listOfDays.adapter = listAdapter
+//        // Get the selected days
+//        listOfDays.setOnItemClickListener { _, _, position, _ ->
+//            val element = listAdapter.getItem(position)// The item that was clicked
+//            if (element != null) {
+//                if (element in selectedDays) {
+//                    selectedDays.remove(element)
+//                } else {
+//                    selectedDays.add(element)
+//                }
+//            }
+//        }
+
+        // Option list for days in week (Modified ArrayAdapter)
+        val listAdapter = object : ArrayAdapter<String>(
             this.requireContext(),
             android.R.layout.simple_list_item_multiple_choice,
             days
-        )
+        ) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getView(position, convertView, parent) as CheckedTextView
+                val element = getItem(position)
+
+                // Set initial and dynamic text color based on selectedDays
+                view.setTextColor(if (element in selectedDays) Color.BLACK else Color.BLACK)
+                return view
+            }
+        }
+
         listOfDays.adapter = listAdapter
-        // Get the selected days
+
+        // Get the selected days (modified)
         listOfDays.setOnItemClickListener { _, _, position, _ ->
             val element = listAdapter.getItem(position)// The item that was clicked
             if (element != null) {

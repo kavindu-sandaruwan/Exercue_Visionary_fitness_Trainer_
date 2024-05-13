@@ -62,7 +62,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:enabled="false"
-                        android:textColor="@color/textGray" />
+                        android:textColor="@color/textGray"
+                        android:textColorHint="#6BFFFFFF" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -125,7 +126,7 @@
                 android:choiceMode="multipleChoice"
                 android:scrollbarSize="@dimen/margin_small"
                 android:scrollbars="vertical"
-                android:textColor="@color/textGray" />
+                android:textColor="@android:color/black" />
 
         </LinearLayout>
 

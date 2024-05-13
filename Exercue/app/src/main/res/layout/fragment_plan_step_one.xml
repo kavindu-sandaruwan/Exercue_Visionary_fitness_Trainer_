@@ -30,6 +30,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="35dp"
                 android:text="@string/choose_exercise"
+                android:textColor="#000000"
                 android:textSize="32sp"
                 android:textStyle="bold" />
 

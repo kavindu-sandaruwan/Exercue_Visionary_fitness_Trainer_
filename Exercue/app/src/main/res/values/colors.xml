@@ -6,7 +6,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#C4C4C4</color>
     <color name="blueButton">#2196F3</color>
-    <color name="textGray">@color/black</color>
+    <color name="textGray">#000000</color>
     <color name="red">#FF0909</color>
     <color name="orange">#FD812E</color>
     <color name="yellow">#F9FD2E</color>
